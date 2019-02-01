@@ -4,9 +4,9 @@ Command-line REPL to log the thoughts from your brain in an organized easy to ac
 
 ---
 
-###Special Commands
+### Special Commands
 
-####Task
+#### Task
 
 Sets the task on which you are currently working (displayed before the prompt). Any messages typed while 
 the task is set will be associated to that task. Leaving the TaskName blank will reset the task to none.
@@ -15,7 +15,7 @@ the task is set will be associated to that task. Leaving the TaskName blank will
 \task {task name}
 ```
 
-####Exit
+#### Exit
 
 Exits the mind logger session.
 
