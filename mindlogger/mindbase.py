@@ -1,6 +1,8 @@
 import sqlite3
 import os
 
+from datetime import datetime
+
 from .mindlog import mindlog
 
 class mindbase():
@@ -29,7 +31,13 @@ class mindbase():
     def show(self):
         print('\x1bc')
         task = "None"
-        for row in self.cursor.execute("SELECT * FROM mindlog"):
+        date = ""
+        for row in self.cursor.execute("SELECT * FROM mindlog ORDER BY date DESC LIMIT 100"):
+            latestDate = datetime.strptime(row[0], "[%Y/%m/%d %H:%M]").date()
+            if (date != latestDate):
+                date = latestDate
+                task = "None"
+                print("\n_______________{date}_______________".format(date=date))
             if (task != row[1]):
                 task = row[1]
                 if (task == "None"):

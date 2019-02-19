@@ -18,7 +18,6 @@ def main():
     mldb = mindbase(args.mind)
     mldb.show()
 
-    # REPL GOES HERE
     message = None
     task = ""
     while (message != "\exit"):
@@ -28,11 +27,8 @@ def main():
             log = mindlog(message, task)
             mldb.log(log)
         elif (message.startswith("\\task")):
-            task = message.replace("\\task ", "")
-            if not task:
-                task = None
+            task = message.replace("\\task", "").strip()
 
         mldb.show()
-
 
     mldb.close()

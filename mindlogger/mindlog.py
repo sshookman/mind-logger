@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 class mindlog():
     timestamp = None
@@ -9,6 +9,6 @@ class mindlog():
         if not task:
             task = None
 
-        self.timestamp = datetime.datetime.now().strftime("[%Y/%m/%d %H:%M]")
+        self.timestamp = datetime.now().strftime("[%Y/%m/%d %H:%M]")
         self.task = task
         self.message = message
