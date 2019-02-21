@@ -10,7 +10,5 @@ class mindlog():
             task = None
 
         self.timestamp = datetime.now().strftime("[%Y/%m/%d %H:%M:%S]")
-        self.task = task
-        self.message = message
-
-        # TODO: Need to find a way to escape special characters or sanitize the input somehow
+        self.task = task.replace("'", "''")
+        self.message = message.replace("'", "''")
