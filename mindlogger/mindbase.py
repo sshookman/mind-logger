@@ -32,7 +32,7 @@ class mindbase():
         print('\x1bc')
         task = "None"
         date = ""
-        for row in self.cursor.execute("SELECT * FROM mindlog ORDER BY date ASC LIMIT 100"):
+        for row in self.cursor.execute("SELECT * FROM mindlog ORDER BY date ASC"):
             latestDate = datetime.strptime(row[0], "[%Y/%m/%d %H:%M]").date()
             if (date != latestDate):
                 date = latestDate
