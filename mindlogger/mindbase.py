@@ -32,8 +32,11 @@ class mindbase():
         print('\x1bc')
         task = "None"
         date = ""
-        for row in self.cursor.execute("SELECT * FROM mindlog ORDER BY date ASC"):
-            latestDate = datetime.strptime(row[0], "[%Y/%m/%d %H:%M]").date()
+        rows = []
+        for row in self.cursor.execute("SELECT * FROM mindlog ORDER BY date DESC LIMIT 100"):
+            rows.append(row)
+        for row in reversed(rows):
+            latestDate = datetime.strptime(row[0], "[%Y/%m/%d %H:%M:%S]").date()
             if (date != latestDate):
                 date = latestDate
                 task = "None"

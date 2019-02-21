@@ -9,7 +9,7 @@ class mindlog():
         if not task:
             task = None
 
-        self.timestamp = datetime.now().strftime("[%Y/%m/%d %H:%M]")
+        self.timestamp = datetime.now().strftime("[%Y/%m/%d %H:%M:%S]")
         self.task = task
         self.message = message
 
