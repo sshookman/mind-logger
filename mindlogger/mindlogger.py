@@ -28,6 +28,9 @@ def main():
             mldb.log(log)
         elif (message.startswith("\\task")):
             task = message.replace("\\task", "").strip()
+        elif (message.startswith("\\search")):
+            search = message.replace("\\search", "").strip()
+            mldb.search(search)
 
         mldb.show()
 

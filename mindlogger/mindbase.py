@@ -28,12 +28,12 @@ class mindbase():
         self.cursor.execute(insert)
         self.conn.commit()
 
-    def show(self):
+    def show(self, query="SELECT * FROM mindlog ORDER BY date DESC LIMIT 100"):
         print('\x1bc')
         task = "None"
         date = ""
         rows = []
-        for row in self.cursor.execute("SELECT * FROM mindlog ORDER BY date DESC LIMIT 100"):
+        for row in self.cursor.execute(query):
             rows.append(row)
         for row in reversed(rows):
             latestDate = datetime.strptime(row[0], "[%Y/%m/%d %H:%M:%S]").date()
@@ -49,6 +49,20 @@ class mindbase():
                     print("\n_____{task}_____".format(task=task))
                 
             print(row[0], " | ", row[2])
+
+    def search(self, context):
+        query = "SELECT * FROM mindlog{where} ORDER BY date DESC"
+        where = ""
+        tokens = context.split(" ")
+
+        if (tokens[0] == "-d"):
+            date = tokens[1].replace("-", "/")
+            where = " WHERE date LIKE '%{date}%'".format(date=date)
+
+        query = query.format(where=where)
+
+        self.show(query)
+        input("\n[PRESS ENTER TO CONTINUE]")
 
 
     def close(self):

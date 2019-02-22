@@ -59,6 +59,15 @@ the task is set will be associated to that task. Leaving the TaskName blank will
 \task {TaskName}
 ```
 
+#### Search
+
+This command allows you to search the curernt log file by a given date. Results will replace the current display of the log file and
+prompt for user input before resuming normal logging once more.
+
+```
+\search -d 2019-01-01
+```
+
 #### Exit
 
 This command simply exits the mind logger session. All logs are saved to the file as soon as they are entered, so there is no need
