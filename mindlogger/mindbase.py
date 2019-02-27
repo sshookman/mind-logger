@@ -55,9 +55,15 @@ class mindbase():
         where = ""
         tokens = context.split(" ")
 
-        if (tokens[0] == "-d"):
-            date = tokens[1].replace("-", "/")
-            where = " WHERE date LIKE '%{date}%'".format(date=date)
+        for idx, token in enumerate(tokens):
+            if (token == "-t"):
+                task = tokens[idx+1]
+                where = " WHERE" if where == "" else "{where} AND".format(where=where)
+                where = "{where} task = '{task}'".format(where=where, task=task)
+            if (token == "-d"):
+                date = tokens[idx+1].replace("-", "/")
+                where = " WHERE" if where == "" else "{where} AND".format(where=where)
+                where = "{where} date LIKE '%{date}%'".format(where=where, date=date)
 
         query = query.format(where=where)
 

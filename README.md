@@ -61,11 +61,11 @@ the task is set will be associated to that task. Leaving the TaskName blank will
 
 #### Search
 
-This command allows you to search the curernt log file by a given date. Results will replace the current display of the log file and
+This command allows you to search the curernt log file by a given date and/or task. Results will replace the current display of the log file and
 prompt for user input before resuming normal logging once more.
 
 ```
-\search -d 2019-01-01
+\search -d 2019-01-01 -t MY_TASK
 ```
 
 #### Exit
