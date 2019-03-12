@@ -55,6 +55,7 @@ class mindbase():
         where = ""
         tokens = context.split(" ")
 
+        raw = ""
         for idx, token in enumerate(tokens):
             if (token == "-t"):
                 task = tokens[idx+1]
@@ -64,7 +65,11 @@ class mindbase():
                 date = tokens[idx+1].replace("-", "/")
                 where = " WHERE" if where == "" else "{where} AND".format(where=where)
                 where = "{where} date LIKE '%{date}%'".format(where=where, date=date)
+            else:
+                raw = "{raw}{token} ".format(raw=raw, token=tokens[idx])
 
+        where = " WHERE" if where == "" else "{where} AND".format(where=where)
+        where = "{where} message LIKE '%{raw}%'".format(where=where, raw=raw.strip())
         query = query.format(where=where)
 
         self.show(query)
