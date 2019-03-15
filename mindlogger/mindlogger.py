@@ -1,15 +1,15 @@
-###############################################
-#                 MIND LOGGER                 #
-#---------------------------------------------#
-# Command-line REPL to log the thoughts from  #
-# your brain in an organized easy to access   #
-# structure.                                  #
-###############################################
+###############################################################
+#                        MIND LOGGER                          #
+#-------------------------------------------------------------#
+# Command-line REPL to log the thoughts from your brain in an #  
+# organized, easily accessible structure.                     #
+###############################################################
 
 import argparse
 
 from .mindlog import mindlog
 from .mindbase import mindbase
+from .config import config
 
 def main():
     parser = argparse.ArgumentParser(description='FEAR... IS... THE MIND LOGGER')
@@ -21,7 +21,8 @@ def main():
     message = None
     task = ""
     while (message != "\exit"):
-        message= input("\n{task} > ".format(task=task))
+        message= input("\n\033[36m\033[1m{task} > \033[0m\033[97m".format(task=task))
+        print("\033[0m")
 
         if (message.startswith("\\") == False):
             log = mindlog(message, task)
@@ -32,6 +33,6 @@ def main():
             search = message.replace("\\search", "").strip()
             mldb.search(search)
 
-        mldb.show()
+        mldb.show(activeTask=task)
 
     mldb.close()
