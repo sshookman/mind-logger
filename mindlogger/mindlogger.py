@@ -21,7 +21,7 @@ def main():
     message = None
     task = ""
     while (message != "\exit"):
-        message= input("\n\033[36m\033[1m{task} > \033[0m\033[97m".format(task=task))
+        message= input("\n\033[44m\033[1m[ {task} ]\033[0m\033[97m ".format(task=task))
         print("\033[0m")
 
         if (message.startswith("\\") == False):
