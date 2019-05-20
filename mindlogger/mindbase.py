@@ -69,7 +69,7 @@ class mindbase():
                 task = tokens[idx+1]
                 where = " WHERE" if where == "" else "{where} AND".format(where=where)
                 where = "{where} task = '{task}'".format(where=where, task=task)
-            if (token == "-d"):
+            elif (token == "-d"):
                 date = tokens[idx+1].replace("-", "/")
                 where = " WHERE" if where == "" else "{where} AND".format(where=where)
                 where = "{where} date LIKE '%{date}%'".format(where=where, date=date)
