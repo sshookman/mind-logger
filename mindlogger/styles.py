@@ -1,4 +1,5 @@
-codes = {
+color_codes = {
+    "clear":"\x1bc",
     "reset":"\033[0m",
     "bold":"\033[1m",
     "red":"\033[31m",

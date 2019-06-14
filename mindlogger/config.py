@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import yaml
 
-from .styles import codes
+from .styles import color_codes
 
 class config():
     reset = "\033[0m"
@@ -28,7 +28,7 @@ class config():
                 if (name in config["style"]):
                     style = ""
                     for styleName in config["style"].get(name, ""):
-                        style += codes.get(styleName, "")
+                        style += color_codes.get(styleName, "")
 
         return style
 

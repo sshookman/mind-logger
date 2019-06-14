@@ -33,6 +33,6 @@ def main():
             search = message.replace("\\search", "").strip()
             mldb.search(search)
 
-        mldb.show(activeTask=task)
+        mldb.show(active_task=task)
 
     mldb.close()
