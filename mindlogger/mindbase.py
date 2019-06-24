@@ -3,6 +3,7 @@ import os
 
 from .mindlog import mindlog
 from .renderer import Renderer
+from .styles import color_codes
 
 class mindbase():
     conn = None
@@ -33,10 +34,12 @@ class mindbase():
             rows.append(row)
 
         # Should be located outside of this class
-        task_stamp_color = "\033[36m\033[1m"
-        date_stamp_color ="\033[44m\033[1m"
-        snip_stamp_color = "\033[107m\033[30m"
-        renderer = Renderer(task_stamp_color, date_stamp_color, snip_stamp_color)
+        task_stamp_color = color_codes["cyan"] + color_codes["bold"]
+        date_stamp_color = color_codes["bg-light-cyan"] + color_codes["bold"]
+        snip_stamp_color = color_codes["bg-white"] + color_codes["black"] + color_codes["bold"]
+        activ_stamp_color = color_codes["bg-white"] + color_codes["black"] + color_codes["bold"]
+        code_block_color = color_codes["bg-white"] + color_codes["black"] + color_codes["bold"]
+        renderer = Renderer(task_stamp_color, date_stamp_color, snip_stamp_color, activ_stamp_color, code_block_color)
         renderer.render_rows(rows, active_task=active_task)
 
     def search(self, context):
