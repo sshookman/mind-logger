@@ -9,7 +9,7 @@ import argparse
 
 from .mindlog import mindlog
 from .mindbase import mindbase
-from .config import config
+from .config import Config
 
 def main():
     parser = argparse.ArgumentParser(description='FEAR... IS... THE MIND LOGGER')

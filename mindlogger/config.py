@@ -5,7 +5,7 @@ import yaml
 
 from .styles import color_codes
 
-class config():
+class Config():
     reset = "\033[0m"
     activeTaskColor = None
     dateHeaderColor = None

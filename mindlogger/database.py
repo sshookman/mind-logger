@@ -5,7 +5,7 @@ from .mindlog import mindlog
 from .renderer import Renderer
 from .styles import color_codes
 
-class mindbase():
+class Database():
     conn = None
     cursor = None
     
